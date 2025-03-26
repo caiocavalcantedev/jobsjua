@@ -1,0 +1,54 @@
+{% extends "jobs/base.html" %}
+{% load icons static %}
+
+{% block title %}..::: JobsJua | Sobre  :::.. {% endblock title %}
+
+{% block title-page %} 
+
+<img class="mb-10 md:w-[60%]"  src="{%  static 'svg/one_vacancie.svg' %}" alt="pagina sobre nós" srcset="">
+<h2>SOBRE NÓS</h2> 
+
+{% endblock title-page %}
+
+{% block main %}
+
+<div class="
+    w-full h-full px-0 flex flex-col justify-center items-center
+    md:flex-row
+    lg:flex-row lg:px-4
+">
+    <div class="w-[90%] h-[90%] p-4">
+        <img class="rounded-[3%]" src="{% static 'img/perfil.jpeg' %}" alt="imagem de perfil">
+    </div>
+
+    <div class="w-[90%] h-[90%] p-4">
+        <h3>
+            Bem-vindo(a) ao JobsJua, a plataforma de vagas criada especialmente para conectar talentos
+            e oportunidades na nossa cidade! O JobsJua nasceu da vontade de fortalecer a economia local
+            e facilitar a busca por empregos e profissionais qualificados. Sabemos que cada cidade tem 
+            suas particularidades, e aqui em <strong>JUAZEIRO-BA</strong>, não é diferente.
+        </h3>
+
+       <br> 
+
+       <h3>
+            Por isso, criamos uma plataforma focada nas necessidades da nossa comunidade, oferecendo vagas
+            que realmente fazem sentido para quem vive e trabalha aqui. Nosso objetivo é ser mais do que um
+            site de empregos. Queremos ser uma ferramenta que promova o crescimento pessoal e profissional, 
+            ajudando empresas a encontrar os melhores talentos e candidatos a descobrir oportunidades que 
+            impulsionem suas carreiras.
+       </h3>
+
+       <br> 
+       
+       <h3>
+            Acreditamos que, juntos, podemos construir uma cidade mais forte, com mais empregos, mais conexões e
+            mais histórias de sucesso.
+       </h3>
+
+       <br>
+
+       <strong class="italic">Caio Cavalcante ( Desenvolvedor )</strong>
+    </div>
+</div>
+{% endblock main %}

@@ -1,0 +1,63 @@
+{% extends "jobs/base.html" %}
+{% load icons static %}
+
+{% block title %}..::: JobsJua | Nossas vagas :::.. {% endblock title %}
+
+{% block title-page %}
+  <img class="mb-10 w-[60%] md:w-[60%]" src="{%  static 'svg/search.svg' %}" alt="veja nossas vagas">
+  <h1>VEJA NOSSAS VAGAS</h1>
+{% endblock title-page %}
+
+{% block main %}
+
+
+
+  {% for item in page %}
+      {% if item.state == True %}
+        <a href="{% url 'view_one_vacancie' id=item.id %}" class="w-[95%]
+        h-auto bg-myGreen-400  hover:bg-myGreen-500 duration-300  p-4 rounded-md my-2
+            md:m-1 md:w-[70%]
+            lg lg:w-[40%]
+        ">
+        <strong class="text-[12px] text-myWhite-50" >{{ item.create_at }}</strong> <br> <br>
+        <strong>Vaga: </strong>{{ item.title  }}<br>
+        <strong>Empresa: </strong> {{ item.enterprise|upper }} <br>
+        <strong>Salário: </strong> {{ item.wage|floatformat:2 }}  <br>
+        <strong>Jornada: </strong> {{ item.weekly_journey }} <br> <br>
+        <strong>Descrição: </strong>
+        <p>{{ item.description|truncatechars:40 }}</p>
+        </a>
+        {% else %}
+        <a href="{% url 'view_one_vacancie' id=item.id %}" class="w-[95%]
+        h-auto bg-myRed-400  hover:bg-myRed-500 duration-300  p-4 rounded-md my-2
+            md:m-1 md:w-[70%]
+            lg lg:w-[40%]
+        ">
+        <strong class="text-[12px] text-myWhite-50" >{{ item.create_at }}</strong> <br> <br>
+        <strong>Vaga: </strong>{{ item.title  }}<br>
+        <strong>Empresa: </strong> {{ item.enterprise|upper }} <br>
+        <strong>Salário: </strong> {{ item.wage|floatformat:2 }}  <br>
+        <strong>Jornada: </strong> {{ item.weekly_journey }} <br> <br>
+        <strong>Descrição: </strong>
+        <p>{{ item.description|truncatechars:40 }}</p>
+        </a>
+        {% endif %}
+    {% endfor %}
+
+    <div class="
+      my-4 py-4 w-full flex justify-center items-center rounded-sm
+      md:px-60
+      ld:px-70
+    ">
+      {% if page.has_previous %}
+        <a href="{% url 'view_vacancies' %}?page={{page.previous_page_number}}" class="flex items-center justify-center px-3 h-8 text-sm font-medium text-myWhite-50 bg-myGreen-700  hover:bg-myGreen-800 rounded-sm duration-300">{% icon 'arow_left' %}</a>
+      {% endif %}
+
+      <h2 class="mx-4 italic">{{page.number}} de {{page.paginator.num_pages}}</h2>
+
+      {% if page.has_next %}<Page 2 of 3>
+        <a href="{% url 'view_vacancies' %}?page={{page.next_page_number}}" class="flex items-center justify-center px-3 h-8 text-sm font-medium  text-myWhite-50 bg-myGreen-700  hover:bg-myGreen-800 rounded-sm duration-300">{% icon 'arow_right' %}</a>
+      {% endif %}
+    </div>
+
+{% endblock main %}

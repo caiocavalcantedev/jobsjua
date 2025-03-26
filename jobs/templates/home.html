@@ -1,0 +1,21 @@
+{% extends "jobs/base.html" %}
+{% load static  %}
+
+{% block title %}..::: JobsJua | Página inicial  :::.. {% endblock title %}
+
+{% block title-page %} 
+    <h1>SEJA BEM VINDO!</h1> 
+{% endblock title-page %}
+
+{% block main %}
+<div class="w-full flex flex-col justify-center items-center px-6 md:w-[70%] lg:w-[50%]">
+    <img class="w-[80%] h-60 mt-8" src="{% static 'svg/hello.svg' %}" alt="boneco acenando">
+    <h2 class=" text-center mt-8 text-md">
+        Encontre as melhores oportunidades em Juazeiro-BA, sem sair de casa! 
+        JobsJua: o caminho mais rápido para o seu próximo emprego!
+    </h2>
+    <a href="{% url 'register' %}" class="flex w-[60%] justify-center rounded-md bg-myGreen-500 hover:bg-myGreen-600 text-myWhite-50 duration-300 mt-8 py-3 text-sm/6 font-semibold">CADASTRAR EMPRESA</a>
+    <h2 class=" text-center mt-4 text-lg">ou</h2>
+    <a href="{% url 'view_vacancies' %}" class="flex w-[50%] justify-center rounded-md bg-myGreen-500 hover:bg-myGreen-600 text-myWhite-50 duration-300 mt-4 py-3 text-sm/6 font-semibold">ACESSAR VAGAS</a>
+</div>
+{% endblock main %}
