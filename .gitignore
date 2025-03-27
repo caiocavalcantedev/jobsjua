@@ -3,3 +3,5 @@ node_modules
 __pycache__
 staticfiles
 teste
+.env
+db.sqlite3
