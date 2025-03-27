@@ -95,7 +95,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'theme/static/css/dist/'),
-    os.path.join(BASE_DIR, 'theme/static_src/src/'),
 ]
 
 # Diretório para onde os arquivos estáticos serão enviados
