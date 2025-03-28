@@ -1,12 +1,11 @@
 import os
 from pathlib import Path
-from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-SECRET_KEY = config('DJANGO_SECRET_KEY', 'secret_key')
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY',)
 
-DEBUG = config('DJANGO_DEBUG', 'DJANGO_DEBUG')
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', '192.168.1.7', '192.168.1.1', '127.0.0.1']
 
@@ -22,7 +21,6 @@ INSTALLED_APPS = [
     'secret',
     'jobs',
     'django_icons',
-    'decouple',
     'tailwind',
     'theme',
 ]
@@ -68,11 +66,11 @@ if not DEBUG:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': config('POSTGRES_DB'),
-            'USER': config('POSTGRES_USER'),
-            'PASSWORD': config('POSTGRES_PASSWORD'),
-            'HOST': config('POSTGRES_HOST'),
-            'PORT': config('POSTGRES_PORT'),
+            'NAME': os.environ.get('POSTGRES_DB'),
+            'USER': os.environ.get('POSTGRES_USER'),
+            'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+            'HOST': os.environ.get('POSTGRES_HOST'),
+            'PORT': os.environ.get('POSTGRES_PORT'),
         }
     }
 else:

@@ -20,7 +20,10 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command:  sh -c "python manage.py migrate --settings=core.settings.base && \
+    env_file:
+      - .env
+    command:  sh -c "python manage.py migrate --settings=core.settings.base && \ 
+              python create_superuser.py && \
               gunicorn core.wsgi:application --bind 0.0.0.0:8000"
     volumes:
       - .:/app
@@ -39,9 +42,9 @@ services:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_HOST: db
       POSTGRES_PORT: 5432
-      USERNAME: ${USERNAME}
-      EMAIL: ${EMAIL}
-      PASSWORD: ${PASSWORD}
+      DJANGO_SUPERUSER_USERNAME: ${DJANGO_SUPERUSER_USERNAME}
+      DJANGO_SUPERUSER_EMAIL: ${DJANGO_SUPERUSER_EMAIL}
+      DJANGO_SUPERUSER_PASSWORD: ${DJANGO_SUPERUSER_PASSWORD}
 
   nginx:
     build:

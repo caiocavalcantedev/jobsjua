@@ -8,19 +8,17 @@ class Enterprise(AbstractUser):
     (False, "Não"),
   )
 
-  # minha razão social vai ser o username
-  cnpj = models.CharField(max_length=14, null=False, blank=False,unique=True, verbose_name="CNPJ")
+  cnpj = models.CharField(max_length=17, null=False, blank=False,unique=False, verbose_name="CNPJ")
   email = models.EmailField(unique=True, verbose_name="Email")
   sector = models.CharField(max_length=200, verbose_name="Setor")
   phone = models.CharField(max_length=11, blank=False, null=False, verbose_name="Telefone")
   whatsapp = models.CharField(max_length=11, blank=False, null=True, verbose_name="WhatsApp")
   is_hiring = models.BooleanField(choices=HIRING_CHOICES, verbose_name="Está contratando", null=False, default=True)
 
-  # tive que ir na class AbstractUser e modificar o campo email para unico manualmente
   USERNAME_FIELD = 'email'
 
   REQUIRED_FIELDS = [
-    'username'
+    'username',
   ]
 
   class Meta:
@@ -80,8 +78,6 @@ class Vacancie(models.Model):
   description = models.TextField(max_length=2000, blank=False, null=False, verbose_name="Descrição")
 
   create_at = models.DateTimeField(auto_now=True)
-
-  USERNAME_FIELD = 'email'
 
   class Meta:
     verbose_name_plural = 'Vagas'
