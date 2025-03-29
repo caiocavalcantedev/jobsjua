@@ -13,16 +13,13 @@ def view_vacancies(request):
   vacancie = Vacancie.objects.all().order_by("-id")
 
   # Instancia do paginator
-  vacancie_paginator = Paginator(vacancie, 12)
+  vacancie_paginator = Paginator(vacancie, 8)
 
   # Definindo pagina atual
   page_num = request.GET.get('page')
 
   # Passa o meu objeto listado
   page = vacancie_paginator.get_page(page_num)
-
-  for item in page:
-    print(item.state)
 
   context = {
     'page': page,

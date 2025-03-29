@@ -4,7 +4,7 @@
 {% block title %}..::: JobsJua | Nossas vagas :::.. {% endblock title %}
 
 {% block title-page %}
-  <img class="mb-10 w-[60%] md:w-[60%]" src="{%  static 'svg/search.svg' %}" alt="veja nossas vagas">
+  <img width="200" height="200" class="mb-10 w-[60%] md:w-[60%]" src="{%  static 'svg/search.svg' %}" alt="veja nossas vagas">
   <h1>VEJA NOSSAS VAGAS</h1>
 {% endblock title-page %}
 
@@ -16,7 +16,7 @@
       {% if item.state == True %}
         <a href="{% url 'view_one_vacancie' id=item.id %}" class="w-[95%]
         h-auto bg-myGreen-400  hover:bg-myGreen-500 duration-300  p-4 rounded-md my-2
-            md:m-1 md:w-[70%]
+            md:m-1 md:w-[80%]
             lg lg:w-[40%]
         ">
         <strong class="text-[12px] text-myWhite-50" >{{ item.create_at }}</strong> <br> <br>
@@ -26,6 +26,10 @@
         <strong>Jornada: </strong> {{ item.weekly_journey }} <br> <br>
         <strong>Descrição: </strong>
         <p>{{ item.description|truncatechars:40 }}</p>
+
+          <div class="flex justify-end items-center mt-1">
+            <strong class="px-4 py-2 text-myGreen-400 bg-myWhite-50  rounded-sm">ABERTA</strong>
+          </div>
         </a>
         {% else %}
         <a href="{% url 'view_one_vacancie' id=item.id %}" class="w-[95%]
@@ -40,6 +44,10 @@
         <strong>Jornada: </strong> {{ item.weekly_journey }} <br> <br>
         <strong>Descrição: </strong>
         <p>{{ item.description|truncatechars:40 }}</p>
+
+          <div class="flex justify-end items-center mt-1">
+            <strong class="px-4 py-2 text-myRed-400 bg-myWhite-50  rounded-sm">FECHADA</strong>
+          </div>
         </a>
         {% endif %}
     {% endfor %}

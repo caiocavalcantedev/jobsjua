@@ -13,8 +13,6 @@ def create_superuser():
     username = os.environ.get('DJANGO_SUPERUSER_USERNAME')
     email = os.environ.get('DJANGO_SUPERUSER_EMAIL')
     password = os.environ.get('DJANGO_SUPERUSER_PASSWORD')
-    
-    print(username,email,password)
 
     if not username or not email or not password:
         print("Erro: Variáveis de ambiente DJANGO_SUPERUSER_USERNAME, DJANGO_SUPERUSER_EMAIL e DJANGO_SUPERUSER_PASSWORD devem estar definidas.")

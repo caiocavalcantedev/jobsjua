@@ -5,9 +5,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY',)
 
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '192.168.1.7', '192.168.1.1', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'jazzmin',

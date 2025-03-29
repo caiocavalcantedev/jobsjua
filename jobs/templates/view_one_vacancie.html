@@ -4,14 +4,75 @@
 {% block title %}..::: JobsJua | Dados da vaga :::.. {% endblock title %}
 
 {% block title-page %}
-  <img class="mb-10 md:w-[60%]" src="{%  static 'svg/one_vacancie.svg' %}" alt="">
+  <img width="200" height="200" class="mb-10 md:w-[60%]" src="{%  static 'svg/one_vacancie.svg' %}" alt="">
   {{ vacancie|upper }}
 {% endblock title-page %}
 
 {% block main %}
 
-  <div class="
-    w-[95%] h-auto bg-myGreen-100 rounded flex flex-col p-4
+  {% if vacancie.state == True %}
+    <div class="
+      w-[95%] h-auto bg-myGreen-400 rounded flex flex-col p-4
+      md:w-[80%]
+      lg:w-[70%]
+    ">
+
+      <strong class="text-[14px] text-myWhite-50">N°: {{vacancie.id}}</strong>
+      <strong class="text-[14px] text-myWhite-50" >Criada em: {{ vacancie.create_at }}</strong> <br>
+
+      <ul class="flex flex-wrap text-md">
+        <li class=" mt-2 p-4">
+          <strong>Vaga:</strong>
+          <p>{{vacancie.title}}</p>
+        </li>
+
+        <li class="mt-2 p-4">
+          <strong>Empresa:</strong>
+          <p>{{vacancie.enterprise|upper}}</p>
+        </li>
+
+        <li class="mt-2 p-4">
+          <strong>Email:</strong>
+          <p>{{vacancie.email}}</p>
+        </li>
+
+        <li class="mt-2 p-4">
+          <strong>WhatsApp:</strong>
+          <p>{{vacancie.whatsapp}}</p>
+        </li>
+
+        <li class="mt-2 p-4">
+          <strong>Tipo:</strong>
+          <p>{{vacancie.modality}}</p>
+        </li>
+
+        <li class="mt-2 p-4">
+          <strong>Jornada semanal:</strong>
+          <p>{{vacancie.weekly_journey}}</p>
+        </li>
+
+
+        <li class="mt-2 p-4">
+          <strong>Salário:</strong>
+          <p>R${{vacancie.wage|floatformat:2}}</p>
+        </li>
+
+        <li class="mt-2 p-4">
+          <strong>Turno:</strong>
+          <p>{{vacancie.work_shift}}</p>
+        </li>
+
+        <li class="mt-2 p-4">
+          <strong>Descrição:</strong>
+          <p >
+            {{ vacancie.description }}
+          </p>
+        </li>
+      </ul>
+    </div>
+  {% else %}
+    <div class="
+    w-[95%] h-auto bg-myRed-400 rounded flex flex-col p-4
     md:w-[80%]
     lg:w-[70%]
   ">
@@ -51,7 +112,7 @@
       </li>
 
 
-       <li class="mt-2 p-4">
+      <li class="mt-2 p-4">
         <strong>Salário:</strong>
         <p>R${{vacancie.wage|floatformat:2}}</p>
       </li>
@@ -68,7 +129,7 @@
         </p>
       </li>
     </ul>
-  </div>
-
-
+    </div>
+  {% endif %}
+  
 {% endblock main %}

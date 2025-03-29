@@ -150,9 +150,10 @@ def recovery_password(request):
           password2 = make_password(password)
 
           enterprise_register.password = password
+          messages.success(request,'Senha alterada com sucesso!')
           enterprise_register.save()
           
-          # SUCESSO
+          # SENHA ATUALIZADA COM SUCESSO
           return redirect('login')
         
       else: 
@@ -173,7 +174,7 @@ def platform(request):
     # BUSCA A VAGA EM QUE A EMPRESA QUE CADASTROU == A EMPRESA QUE ESTÁ LOGADA
     company_vacancie = Vacancie.objects.filter(enterprise=enterprise_loggedin)
 
-    vacancie_paginator = Paginator(company_vacancie, 12)
+    vacancie_paginator = Paginator(company_vacancie, 8)
     
     page_num = request.GET.get('page')
 
