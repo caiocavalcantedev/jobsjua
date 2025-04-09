@@ -31,85 +31,87 @@
         md:flex-nowrap md:justify-between md:items-center
     ">
         <!-- ========== DIV DA LOGO MARCA ========== -->
-        <div class="w-[40vw] px-4 h-full flex justify-start items-center
-          md:w-[20%]
-        ">
-          <img width="100"  src="{% static 'svg/logo.svg' %}" alt="" srcset="">
-        </div>
-
-        <!-- ========== BOTÃO TIPO HAMBURGER ========== -->
-        <button
-          data-collapse-toggle="navbar-default"
-          id="hamburger"
-          type="button"
-          class="inline-flex text-myWhite-300 items-center p-4 w-15 h-15 justify-center duration-300 text-sm md:hidden"
-          aria-controls="navbar-default"
-          aria-expanded="false"
-        >
-          <svg
-            class="w-5 h-5"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 17 14"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M1 1h15M1 7h15M1 13h15"
-            />
-          </svg>
-        </button>
-
-        <!-- Parte interna do Hamburger -->
-        <div id="navbar-default"
-          class=" hidden w-full bg-myGreen-500 h-[100vh]
-            md:w-[60%]  md:h-full md:flex  md:mr-4 md:bg-opacity-0
-            lg:w-[45%] lg:mr-4
-            xl:w-[35%] xl:mr-4
+          <div class="w-[40vw] px-4 h-full flex justify-start items-center
+            md:w-[20%]
           ">
+            <a href="{% url 'platform' %}">
+              <img width="100"  src="{% static 'svg/logo.svg' %}" alt="" srcset="">
+            </a>
+          </div>
 
-          <ul
-            class="flex flex-col p-8 mb-4 rounded-md
-            md:w-full md:h-full md:rounded-none md:px-0 md:p-0 md:mb-0 md:flex-row md:justify-between md:items-center
+          <!-- ========== BOTÃO TIPO HAMBURGER ========== -->
+          <button
+            data-collapse-toggle="navbar-default"
+            id="hamburger"
+            type="button"
+            class="inline-flex text-myWhite-300 items-center p-4 w-15 h-15 justify-center duration-300 text-sm md:hidden"
+            aria-controls="navbar-default"
+            aria-expanded="false"
+          >
+            <svg
+              class="w-5 h-5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 17 14"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M1 1h15M1 7h15M1 13h15"
+              />
+            </svg>
+          </button>
+
+          <!-- Parte interna do Hamburger -->
+          <div id="navbar-default"
+            class=" hidden w-full bg-myGreen-500 h-[100vh]
+              md:w-[60%]  md:h-full md:flex  md:mr-4 md:bg-opacity-0
+              lg:w-[45%] lg:mr-4
+              xl:w-[35%] xl:mr-4
             ">
 
-            <li class="font-normal
+            <ul
+              class="flex flex-col p-8 mb-4 rounded-md
+              md:w-full md:h-full md:rounded-none md:px-0 md:p-0 md:mb-0 md:flex-row md:justify-between md:items-center
+              ">
+
+              <li class="font-normal
+                  md:h-[100%] md:w-full md:flex md:justify-center md:items-center">
+
+                <a href="{% url 'new_vacancie' %}"
+                  class="duration-300 mb-1 p-4 text-myWhite-50 font-normal bg-myGreen-700 hover:bg-myGreen-800 rounded-md flex justify-start items-center
+                  md:w-auto md:h-[80%] md:px-2  md:mb-0  md:flex md:justify-center md:items-center md:rounded-md">
+                  {% icon 'plus' %}
+                  <h1 class="mx-2">Nova vaga</h1>
+                </a>
+              </li>
+
+              <li class=" font-normal
                 md:h-[100%] md:w-full md:flex md:justify-center md:items-center">
 
-              <a href="{% url 'new_vacancie' %}"
-                class="duration-300 mb-1 p-4 text-myWhite-50 font-normal bg-myGreen-700 hover:bg-myGreen-800 rounded-md flex justify-start items-center
-                md:w-auto md:h-[80%] md:px-2  md:mb-0  md:flex md:justify-center md:items-center md:rounded-md">
-                {% icon 'plus' %}
-                <h1 class="mx-2">Nova vaga</h1>
-              </a>
-            </li>
+                <a href="{% url 'platform' %}"
+                  class="duration-300 w-auto h-auto mb-1 p-4 text-myWhite-50 font-normal bg-myGreen-700 hover:bg-myGreen-800 rounded-md flex justify-start items-center
+                  md:w-auto md:h-[80%] md:px-2  md:mb-0  md:flex md:justify-center md:items-center md:rounded-md">
+                  {% icon 'eye' %}
+                  <h1 class="mx-2">Minhas Vagas</h1>
+                </a>
+              </li>
 
-            <li class=" font-normal
-              md:h-[100%] md:w-full md:flex md:justify-center md:items-center">
+              <li class=" font-normal
+                md:h-[100%] md:w-full   md:flex md:justify-center md:items-center">
 
-              <a href="{% url 'platform' %}"
-                class="duration-300 w-auto h-auto mb-1 p-4 text-myWhite-50 font-normal bg-myGreen-700 hover:bg-myGreen-800 rounded-md flex justify-start items-center
-                md:w-auto md:h-[80%] md:px-2  md:mb-0  md:flex md:justify-center md:items-center md:rounded-md">
-                {% icon 'eye' %}
-                <h1 class="mx-2">Minhas Vagas</h1>
-              </a>
-            </li>
-
-            <li class=" font-normal
-              md:h-[100%] md:w-full   md:flex md:justify-center md:items-center">
-
-              <a href="{% url 'logout' %}"
-                class="p-4 text-myWhite-50 font-normal bg-myRed-500 hover:bg-myRed-600 rounded-md flex justify-start items-center duration-300
-                md:w-auto md:h-[80%] md:px-4  md:mb-0  md:flex md:justify-center md:items-center md:rounded-md">
-                {% icon 'login' %}
-                <h1 class="mx-2">Sair</h1>
-              </a>
-            </li>
-          </ul>
-        </div>
+                <a href="{% url 'logout' %}"
+                  class="p-4 text-myWhite-50 font-normal bg-myRed-500 hover:bg-myRed-600 rounded-md flex justify-start items-center duration-300
+                  md:w-auto md:h-[80%] md:px-4  md:mb-0  md:flex md:justify-center md:items-center md:rounded-md">
+                  {% icon 'login' %}
+                  <h1 class="mx-2">Sair</h1>
+                </a>
+              </li>
+            </ul>
+          </div>
         </nav>
 
       <!-- ========== CABEÇALHO PARA EMPRESA NÃO AUTENTICADA ========== -->
@@ -121,7 +123,9 @@
             <div class="w-[40vw] px-4 h-full flex justify-start items-center
               md:w-[20%]
             ">
-              <img width="100"  src="{% static 'svg/logo.svg' %}" alt="" srcset="">
+              <a href="{% url 'home' %}">
+                <img width="100"  src="{% static 'svg/logo.svg' %}" alt="logo marca">
+              </a>
             </div>
 
             <!-- ========== BOTÃO TIPO HAMBURGER ========== -->
@@ -200,7 +204,7 @@
                   md:h-[100%] md:w-full   md:flex md:justify-center md:items-center">
 
                   <a href="{% url 'login' %}"
-                    class="p-4 text-myWhite-50 font-normal bg-myBlue-600 hover:bg-myBlue-700 rounded-md flex justify-start items-center duration-300
+                    class="p-4 text-myWhite-50 font-normal bg-myGreen-700 hover:bg-myGreen-800 rounded-md flex justify-start items-center duration-300
                     md:w-auto md:h-[80%] md:px-3  md:mb-0  md:flex md:justify-center md:items-center md:rounded-md">
                     {% icon 'login' %}
                     <h1 class="mx-2">Entrar</h1>
@@ -226,7 +230,7 @@
       {% if messages %}
         {% for message in messages %}
           {% if message.tags == 'success'%}
-            <div class="p-4 mb-4 text-sm text-myGreen-800 rounded-md bg-myGreen-200">
+            <div class="p-4 mb-4 text-sm text-myGreen-800 rounded-md bg-myGreen-100">
               <span class="font-medium"> {{ message }} </span> 
             </div>
           {% elif message.tags == 'error'%}
@@ -244,17 +248,20 @@
         {% block main %}{% endblock main %}
       </main>
 
-      <footer
-        class="w-[100%] h-[10%] font-xs flex items-center justify-center my-8"
-      >
-        <div>
-          © Todos os direitos reservados |
-          <a
-            class="text-myGreen-700 font-bold italic underline"
-            href="mailto:caio.ayslan.nunes@gmail.com"
-            >Caio Cavalcante</a
-          >
+      <footer class="w-[100%] h-[10%] font-xs flex items-center justify-center my-10">
+
+        <div class=" w-[100%] h-[100%] flex items-center justify-center text-center">
+          <p class="">
+            © Todos os direitos reservados <br>
+
+            <a
+              class="text-myGreen-700 font-bold text-center italic underline"
+              href="mailto:caio.ayslan.nunes@gmail.com"
+              >Caio Cavalcante
+            </a>
+          </p>
         </div>
+
       </footer>
     </div>
 

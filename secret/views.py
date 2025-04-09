@@ -10,7 +10,6 @@ from secret.forms import RecoveryPasswordForm
 from jobs.models import Enterprise, Vacancie
 from django.core.paginator import Paginator 
 from django.contrib.auth.hashers import make_password
-
 from rolepermissions.roles import assign_role
 
 
@@ -172,7 +171,7 @@ def platform(request):
     enterprise_loggedin = request.user
     
     # BUSCA A VAGA EM QUE A EMPRESA QUE CADASTROU == A EMPRESA QUE ESTÁ LOGADA
-    company_vacancie = Vacancie.objects.filter(enterprise=enterprise_loggedin)
+    company_vacancie = Vacancie.objects.filter(enterprise=enterprise_loggedin).order_by("-id")
 
     vacancie_paginator = Paginator(company_vacancie, 8)
     
