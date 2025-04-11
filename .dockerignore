@@ -1,10 +1,11 @@
 __pycache__/
-venv/
+venv
 *.pyc
-*.sqlite3
-static/
+db.sqlite3
+static
 .env-exemple
-.git/
+*.md
+.git
 .vscode/
 *.gitignore
 node_modules/

@@ -90,22 +90,16 @@ USE_TZ = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Diretório onde os arquivos de mídia serão coletados
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
-    os.path.join(BASE_DIR, 'theme/static/css/dist/'),
 ]
 
-# Diretório para onde os arquivos estáticos serão enviados
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# URL para acessar os arquivos estáticos
 STATIC_URL = '/static/'
 
-# MODELS DE USUARIO ( modelo de usuario padrão )
 AUTH_USER_MODEL = 'jobs.Enterprise'
 
-# CONFIGURAÇÃO DE ICONES
 DJANGO_ICONS = {
     "ICONS": {
         "login": {"name": "fa-duotone fa-solid fa-right-to-bracket"},
@@ -121,9 +115,7 @@ DJANGO_ICONS = {
     },
 }
 
-# CONFIGURAÇÃO DE ROLEPERMISSIONS
 ROLEPERMISSIONS_MODULE = "core.roles"
 
-# TAILWINDCSS CONFIGS
 TAILWIND_APP_NAME = 'theme'
 INTERNAL_IPS = ["127.0.0.1",]
