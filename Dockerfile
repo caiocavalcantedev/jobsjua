@@ -12,8 +12,6 @@ COPY requirements.txt /app/
 RUN pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY .env /app/.env
-
 COPY theme/static_src/package*.json ./theme/static_src/
 COPY theme/static_src/package-lock.json ./theme/static_src/
 
