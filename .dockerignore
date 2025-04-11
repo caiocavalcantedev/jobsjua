@@ -1,11 +1,23 @@
+# PASTAS PARA SEREM IGNORADAS AO SUBIR O CONTAINER
 __pycache__/
-venv
-*.pyc
-db.sqlite3
-static
-.env-exemple
-*.md
-.git
+venv/
+.git/
 .vscode/
-*.gitignore
 node_modules/
+nginx/
+.docker/
+
+# ARQUIVOS PARA SEREM IGNORADOS AO SUBIR O CONTAINER
+*.pyc
+*.sqlite3
+*.md
+*.gitignore
+*.env
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# O IGNORE VAI IGNORAR TRISCA NESSES ARQUIVOS
+!.env-example
+
+
