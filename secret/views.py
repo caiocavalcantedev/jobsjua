@@ -1,7 +1,6 @@
 import requests
 from django.contrib import messages
 from django.shortcuts import render, redirect 
-from django.http import HttpResponse 
 from django.contrib.auth import login as login_enterprise, authenticate, logout as logout_platform
 from django.contrib.auth.decorators import login_required 
 from secret.forms import VacancieForm
@@ -87,6 +86,8 @@ def register(request):
             is_hiring=is_hiring,
             password=password
           )
+          
+          print(new_enterprise)
 
           #VERIFICANDO SE O CNPJ INFORMADO JÁ EXISTE NA BASE DE DADOS
           cnpj_is_valid = Enterprise.objects.filter(cnpj=cnpj).first()
@@ -111,7 +112,6 @@ def register(request):
 
             new_enterprise.save()
             assign_role(new_enterprise, 'enterprise')
-            
             return redirect('login')
           
         else: 

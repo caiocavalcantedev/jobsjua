@@ -1,1 +1,5 @@
-toda a minha aplicação ainda ta indo para o container verificar para mandar o .env apenas na fase de build depois remover
+# instalar o docker e o docker-compose
+# clonar a aplicação
+# Inserir os dados no meu arquivo .env
+# instalar as dependencias do projeto
+# subir a aplicação docker
