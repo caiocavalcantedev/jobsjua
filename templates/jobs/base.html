@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -11,7 +10,7 @@
       href="{% static 'img/favicon.png' %}"
       type="image/x-icon"
     />
-    
+
     {% tailwind_css %}
 
     <link
@@ -23,238 +22,243 @@
     <title>{% block title %}{% endblock %}</title>
   </head>
 
-  <body class="box-border ">
+  <body class="box-border">
     <div class="flex flex-col items-center w-[100%] h-auto">
       <!-- ========== CABEÇALHO PARA EMPRESA AUTENTICADA ========== -->
       {% if user.is_authenticated == True %}
-        <nav class="  w-full h-[8vh] relative flex flex-wrap items-center justify-between
-        md:flex-nowrap md:justify-between md:items-center
-    ">
+      <nav
+        class="w-full h-[8vh] relative flex flex-wrap items-center justify-between md:flex-nowrap md:justify-between md:items-center"
+      >
         <!-- ========== DIV DA LOGO MARCA ========== -->
-          <div class="w-[40vw] px-4 h-full flex justify-start items-center
-            md:w-[20%]
-          ">
-            <a href="{% url 'platform' %}">
-              <img width="100"  src="{% static 'svg/logo.svg' %}" alt="" srcset="">
-            </a>
-          </div>
+        <div
+          class="w-[40vw] px-4 h-full flex justify-start items-center md:w-[20%]"
+        >
+          <a href="{% url 'platform' %}">
+            <img
+              width="100"
+              src="{% static 'svg/logo.svg' %}"
+              alt=""
+              srcset=""
+            />
+          </a>
+        </div>
 
-          <!-- ========== BOTÃO TIPO HAMBURGER ========== -->
-          <button
-            data-collapse-toggle="navbar-default"
-            id="hamburger"
-            type="button"
-            class="inline-flex text-myWhite-300 items-center p-4 w-15 h-15 justify-center duration-300 text-sm md:hidden"
-            aria-controls="navbar-default"
-            aria-expanded="false"
+        <!-- ========== BOTÃO TIPO HAMBURGER ========== -->
+        <button
+          data-collapse-toggle="navbar-default"
+          id="hamburger"
+          type="button"
+          class="inline-flex text-myWhite-300 items-center p-4 w-15 h-15 justify-center duration-300 text-sm md:hidden"
+          aria-controls="navbar-default"
+          aria-expanded="false"
+        >
+          <svg
+            class="w-5 h-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 17 14"
           >
-            <svg
-              class="w-5 h-5"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 17 14"
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 1h15M1 7h15M1 13h15"
+            />
+          </svg>
+        </button>
+
+        <!-- Parte interna do Hamburger -->
+        <div
+          id="navbar-default"
+          class="hidden w-full bg-myGreen-500 h-[100vh] md:w-[60%] md:h-full md:flex md:mr-4 md:bg-opacity-0 lg:w-[45%] xl:w-[25%] xl:items-center"
+        >
+          <ul
+            class="flex flex-col p-8 mb-4 rounded-md md:w-full md:h-full md:rounded-none md:px-0 md:p-0 md:mb-0 md:flex-row md:justify-between md:items-center xl:h-13"
+          >
+            <li
+              class="font-normal md:h-[100%] md:w-full md:flex md:justify-center md:items-center"
             >
-              <path
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M1 1h15M1 7h15M1 13h15"
-              />
-            </svg>
-          </button>
+              <a
+                href="{% url 'new_vacancie' %}"
+                class="duration-300 mb-1 p-4 text-myWhite-50 font-normal bg-myGreen-700 hover:bg-myGreen-800 rounded-md flex justify-start items-center md:w-auto md:h-[80%] md:px-2 md:mb-0 md:flex md:justify-center md:items-center md:rounded-md"
+              >
+                {% icon 'plus' %}
+                <h1 class="mx-2">Nova vaga</h1>
+              </a>
+            </li>
 
-          <!-- Parte interna do Hamburger -->
-          <div id="navbar-default"
-            class=" hidden w-full bg-myGreen-500 h-[100vh]
-              md:w-[60%]  md:h-full md:flex  md:mr-4 md:bg-opacity-0
-              lg:w-[45%]
-              xl:w-[25%] xl:items-center
-            ">
+            <li
+              class="font-normal md:h-[100%] md:w-full md:flex md:justify-center md:items-center"
+            >
+              <a
+                href="{% url 'platform' %}"
+                class="duration-300 w-auto h-auto mb-1 p-4 text-myWhite-50 font-normal bg-myGreen-700 hover:bg-myGreen-800 rounded-md flex justify-start items-center md:w-auto md:h-[80%] md:px-2 md:mb-0 md:flex md:justify-center md:items-center md:rounded-md"
+              >
+                {% icon 'eye' %}
+                <h1 class="mx-2">Minhas Vagas</h1>
+              </a>
+            </li>
 
-            <ul
-              class="flex flex-col p-8 mb-4 rounded-md
-              md:w-full md:h-full md:rounded-none md:px-0 md:p-0 md:mb-0 md:flex-row md:justify-between md:items-center
-              xl:h-13
-              ">
-
-              <li class="font-normal
-                  md:h-[100%] md:w-full md:flex md:justify-center md:items-center">
-
-                <a href="{% url 'new_vacancie' %}"
-                  class="duration-300 mb-1 p-4 text-myWhite-50 font-normal bg-myGreen-700 hover:bg-myGreen-800 rounded-md flex justify-start items-center
-                  md:w-auto md:h-[80%] md:px-2  md:mb-0  md:flex md:justify-center md:items-center md:rounded-md">
-                  {% icon 'plus' %}
-                  <h1 class="mx-2">Nova vaga</h1>
-                </a>
-              </li>
-
-              <li class=" font-normal
-                md:h-[100%] md:w-full md:flex md:justify-center md:items-center">
-
-                <a href="{% url 'platform' %}"
-                  class="duration-300 w-auto h-auto mb-1 p-4 text-myWhite-50 font-normal bg-myGreen-700 hover:bg-myGreen-800 rounded-md flex justify-start items-center
-                  md:w-auto md:h-[80%] md:px-2  md:mb-0  md:flex md:justify-center md:items-center md:rounded-md">
-                  {% icon 'eye' %}
-                  <h1 class="mx-2">Minhas Vagas</h1>
-                </a>
-              </li>
-
-              <li class=" font-normal
-                md:h-[100%] md:w-full   md:flex md:justify-center md:items-center">
-
-                <a href="{% url 'logout' %}"
-                  class="p-4 text-myWhite-50 font-normal bg-myRed-500 hover:bg-myRed-600 rounded-md flex justify-start items-center duration-300
-                  md:w-auto md:h-[80%] md:px-4  md:mb-0  md:flex md:justify-center md:items-center md:rounded-md">
-                  {% icon 'login' %}
-                  <h1 class="mx-2">Sair</h1>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </nav>
+            <li
+              class="font-normal md:h-[100%] md:w-full md:flex md:justify-center md:items-center"
+            >
+              <a
+                href="{% url 'logout' %}"
+                class="p-4 text-myWhite-50 font-normal bg-myRed-500 hover:bg-myRed-600 rounded-md flex justify-start items-center duration-300 md:w-auto md:h-[80%] md:px-4 md:mb-0 md:flex md:justify-center md:items-center md:rounded-md"
+              >
+                {% icon 'login' %}
+                <h1 class="mx-2">Sair</h1>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
       <!-- ========== CABEÇALHO PARA EMPRESA NÃO AUTENTICADA ========== -->
       {% else %}
-        <nav class="  w-full h-[8vh] relative flex flex-wrap items-center justify-between
-            md:flex-nowrap md:justify-between md:items-center
-        ">
-            <!-- ========== DIV DA LOGO MARCA ========== -->
-            <div class="w-[40vw] px-4 h-full flex justify-start items-center
-              md:w-[20%]
-            ">
-              <a href="{% url 'home' %}">
-                <img width="100"  src="{% static 'svg/logo.svg' %}" alt="logo marca">
-              </a>
-            </div>
+      <nav
+        class="w-full h-[8vh] relative flex flex-wrap items-center justify-between md:flex-nowrap md:justify-between md:items-center"
+      >
+        <!-- ========== DIV DA LOGO MARCA ========== -->
+        <div
+          class="w-[40vw] px-4 h-full flex justify-start items-center md:w-[20%]"
+        >
+          <a href="{% url 'home' %}">
+            <img
+              width="100"
+              src="{% static 'svg/logo.svg' %}"
+              alt="logo marca"
+            />
+          </a>
+        </div>
 
-            <!-- ========== BOTÃO TIPO HAMBURGER ========== -->
-            <button
-              data-collapse-toggle="navbar-default"
-              id="hamburger"
-              type="button"
-              class="inline-flex text-myWhite-300 items-center p-4 w-15 h-15 justify-center duration-300 text-sm md:hidden"
-              aria-controls="navbar-default"
-              aria-expanded="false"
+        <!-- ========== BOTÃO TIPO HAMBURGER ========== -->
+        <button
+          data-collapse-toggle="navbar-default"
+          id="hamburger"
+          type="button"
+          class="inline-flex text-myWhite-300 items-center p-4 w-15 h-15 justify-center duration-300 text-sm md:hidden"
+          aria-controls="navbar-default"
+          aria-expanded="false"
+        >
+          <svg
+            class="w-5 h-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 17 14"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 1h15M1 7h15M1 13h15"
+            />
+          </svg>
+        </button>
+
+        <!-- Parte interna do Hamburger -->
+        <div
+          id="navbar-default"
+          class="hidden w-full bg-myGreen-500 h-[100vh] md:w-[55%] md:h-full md:flex md:mr-4 md:bg-opacity-0 lg:w-[45%] xl:w-[25%] xl:items-center"
+        >
+          <ul
+            class="flex flex-col p-8 mb-4 rounded-md md:w-full md:h-full md:rounded-none md:px-0 md:p-0 md:mb-0 md:flex-row md:justify-between md:items-center xl:h-13"
+          >
+            <li
+              class="font-normal md:h-[100%] md:w-full md:flex md:justify-center md:items-center"
             >
-              <svg
-                class="w-5 h-5"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 17 14"
+              <a
+                href="{% url 'home' %}"
+                class="duration-300 mb-1 p-4 text-myWhite-50 font-normal bg-myGreen-700 hover:bg-myGreen-800 rounded-md flex justify-start items-center md:w-auto md:h-[80%] md:px-3 md:mb-0 md:flex md:justify-center md:items-center md:rounded-md"
               >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M1 1h15M1 7h15M1 13h15"
-                />
-              </svg>
-            </button>
+                {% icon 'home' %}
+                <h1 class="mx-2">Início</h1>
+              </a>
+            </li>
 
-            <!-- Parte interna do Hamburger -->
-            <div id="navbar-default"
-              class=" hidden w-full bg-myGreen-500 h-[100vh]
-                md:w-[55%]  md:h-full md:flex  md:mr-4 md:bg-opacity-0
-                lg:w-[45%] 
-                xl:w-[25%] xl:items-center
-              ">
+            <li
+              class="font-normal md:h-[100%] md:w-full md:flex md:justify-center md:items-center"
+            >
+              <a
+                href="{% url 'view_vacancies' %}"
+                class="duration-300 mb-1 p-4 text-myWhite-50 font-normal bg-myGreen-700 hover:bg-myGreen-800 rounded-md flex justify-start items-center md:w-auto md:h-[80%] md:px-3 md:mb-0 md:flex md:justify-center md:items-center md:rounded-md"
+              >
+                {% icon 'eye' %}
+                <h1 class="mx-2">Vagas</h1>
+              </a>
+            </li>
 
-              <ul
-                class="flex flex-col p-8 mb-4 rounded-md
-                md:w-full md:h-full md:rounded-none md:px-0 md:p-0 md:mb-0 md:flex-row md:justify-between md:items-center
-                xl:h-13
-                ">
+            <li
+              class="font-normal md:h-[100%] md:w-full md:flex md:justify-center md:items-center"
+            >
+              <a
+                href="{% url 'about' %}"
+                class="duration-300 mb-1 p-4 text-myWhite-50 font-normal bg-myGreen-700 hover:bg-myGreen-800 rounded-md flex justify-start items-center md:w-auto md:h-[80%] md:px-3 md:mb-0 md:flex md:justify-center md:items-center md:rounded-md"
+              >
+                {% icon 'eye' %}
+                <h1 class="mx-2">Sobre</h1>
+              </a>
+            </li>
 
-                <li class=" font-normal
-                    md:h-[100%] md:w-full  md:flex md:justify-center md:items-center">
-
-                  <a href="{% url 'home' %}"
-                    class="duration-300 mb-1 p-4 text-myWhite-50 font-normal bg-myGreen-700 hover:bg-myGreen-800 rounded-md flex justify-start items-center
-                    md:w-auto md:h-[80%] md:px-3  md:mb-0  md:flex md:justify-center md:items-center md:rounded-md">
-                    {% icon 'home' %}
-                    <h1 class="mx-2">Início</h1>
-                  </a>
-                </li>
-
-                <li class=" font-normal
-                  md:h-[100%] md:w-full md:flex md:justify-center md:items-center">
-
-                  <a href="{% url 'view_vacancies' %}"
-                    class="duration-300 mb-1 p-4 text-myWhite-50 font-normal bg-myGreen-700 hover:bg-myGreen-800 rounded-md flex justify-start items-center
-                    md:w-auto md:h-[80%] md:px-3  md:mb-0  md:flex md:justify-center md:items-center md:rounded-md">
-                    {% icon 'eye' %}
-                    <h1 class="mx-2">Vagas</h1>
-                  </a>
-                </li>
-
-                <li class=" font-normal
-                  md:h-[100%] md:w-full    md:flex md:justify-center md:items-center">
-
-                  <a href="{% url 'about' %}"
-                    class="duration-300 mb-1 p-4 text-myWhite-50 font-normal bg-myGreen-700 hover:bg-myGreen-800 rounded-md flex justify-start items-center
-                    md:w-auto md:h-[80%] md:px-3  md:mb-0  md:flex md:justify-center md:items-center md:rounded-md">
-                    {% icon 'eye' %}
-                    <h1 class="mx-2">Sobre</h1>
-                  </a>
-                </li>
-
-                <li class=" font-normal
-                  md:h-[100%] md:w-full   md:flex md:justify-center md:items-center">
-
-                  <a href="{% url 'login' %}"
-                    class="p-4 text-myWhite-50 font-normal bg-myGreen-700 hover:bg-myGreen-800 rounded-md flex justify-start items-center duration-300
-                    md:w-auto md:h-[80%] md:px-3  md:mb-0  md:flex md:justify-center md:items-center md:rounded-md">
-                    {% icon 'login' %}
-                    <h1 class="mx-2">Entrar</h1>
-                  </a>
-                </li>
-              </ul>
-            </div>
-        </nav>
+            <li
+              class="font-normal md:h-[100%] md:w-full md:flex md:justify-center md:items-center"
+            >
+              <a
+                href="{% url 'login' %}"
+                class="p-4 text-myWhite-50 font-normal bg-myGreen-700 hover:bg-myGreen-800 rounded-md flex justify-start items-center duration-300 md:w-auto md:h-[80%] md:px-3 md:mb-0 md:flex md:justify-center md:items-center md:rounded-md"
+              >
+                {% icon 'login' %}
+                <h1 class="mx-2">Entrar</h1>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
       {% endif %}
 
       <!-- ========== TITULO DAS PAGINAS ========== -->
-      <div class="my-10 px-8 text-2xl font-semibold text-myGreen-700 flex justify-center flex-col items-center
-
-      md:w-[60vw]
-      lg:w-[40vw]
-      ">
-        {% block title-page %}
-        {% endblock title-page %}
+      <div
+        class="my-10 px-8 text-2xl font-semibold text-myGreen-700 flex justify-center flex-col items-center md:w-[60vw] lg:w-[40vw]"
+      >
+        {% block title-page %} {% endblock title-page %}
       </div>
 
       <!-- ========== CONTEUDO DAS MENSAGENS E ALERTA ========== -->
 
-      {% if messages %}
-        {% for message in messages %}
+      {% if messages %} 
+        {% for message in messages %} 
           {% if message.tags == 'success'%}
             <div class="p-4 mb-4 text-sm text-myGreen-800 rounded-md bg-myGreen-100">
-              <span class="font-medium"> {{ message }} </span> 
+              <span class="font-medium"> {{ message }} </span>
             </div>
           {% elif message.tags == 'error'%}
             <div class="p-4 mb-4 text-sm text-myRed-800 rounded-md bg-myRed-200">
               <span class="font-medium">Ôpa!!</span> {{ message }}
             </div>
-          {% endif %}
+          {% endif %} 
         {% endfor %} 
       {% endif %}
 
       <!-- ========== CONTEUDO PRINCIPAL ========== -->
 
-      <main class="py-5 rounded-md border-solid border border-myWhite-200 container flex flex-wrap justify-center items-center w-[90%] h-auto mb-8 md:flex-row md:w-[90vw] lg:flex-row lg:w-[70vw]"
+      <main
+        class="py-5 rounded-md border-solid border border-myWhite-200 container flex flex-wrap justify-center items-center w-[90%] h-auto mb-8 md:flex-row md:w-[90vw] lg:flex-row lg:w-[70vw]"
       >
         {% block main %}{% endblock main %}
       </main>
 
-      <footer class="w-[100%] h-[10%] font-xs flex items-center justify-center my-10">
-
-        <div class=" w-[100%] h-[100%] flex items-center justify-center text-center">
+      <footer
+        class="w-[100%] h-[10%] font-xs flex items-center justify-center my-10"
+      >
+        <div
+          class="w-[100%] h-[100%] flex items-center justify-center text-center"
+        >
           <p class="">
-            © Todos os direitos reservados <br>
+            © Todos os direitos reservados <br />
 
             <a
               class="text-myGreen-700 font-bold text-center italic underline"
@@ -263,7 +267,6 @@
             </a>
           </p>
         </div>
-
       </footer>
     </div>
 
